@@ -1,0 +1,6 @@
+@import "config";
+
+header {
+  @extend %flex;
+  margin-bottom: 20px;
+}

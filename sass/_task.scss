@@ -1,0 +1,25 @@
+@import "config";
+
+.task {
+  padding: 10px;
+  background: lightblue;
+  margin-bottom: 10px;
+  border-radius: $radius;
+
+  h3 {
+    @extend %flex;
+
+    svg {
+      cursor: pointer;
+      line-height: 1rem;
+      color: red;
+      padding: 3px;
+      border-radius: 50%;
+      background: #fff;
+    }
+    svg:hover {
+      color: #fff;
+      background: red;
+    }
+  }
+}
