@@ -5,9 +5,7 @@ const Task = ({ task }) => {
     <div className="task">
       <h3>
         {task.text}
-        <em>
-          <FaTimes />
-        </em>
+        <FaTimes />
       </h3>
       <p>{task.time}</p>
     </div>
