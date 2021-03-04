@@ -3,7 +3,7 @@ import Tasks from "./components/Tasks";
 import { useState } from "react";
 
 function App() {
-  const [tasks, setTasks] = useState([
+  const [tasks] = useState([
     {
       id: 1,
       text: "Food Shopping",
