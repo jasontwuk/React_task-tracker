@@ -3,7 +3,7 @@ import Tasks from "./components/Tasks";
 import { useState } from "react";
 
 function App() {
-  const [tasks] = useState([
+  const [tasks, setTasks] = useState([
     {
       id: 1,
       text: "Food Shopping",
@@ -21,10 +21,19 @@ function App() {
     },
   ]);
 
+  // delete task
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} />
+      {tasks.length > 0 ? (
+        <Tasks tasks={tasks} deleteTask={deleteTask} />
+      ) : (
+        <span>No Tasks To Show</span>
+      )}
     </div>
   );
 }
