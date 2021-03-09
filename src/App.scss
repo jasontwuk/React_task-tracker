@@ -1,4 +1,4 @@
-@import "config";
+@import "./styles/config";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
 
 * {
@@ -21,6 +21,6 @@ body {
   border-radius: $radius;
 }
 
-@import "header";
-@import "btn";
-@import "task";
+@import "./styles/header";
+@import "./styles/btn";
+@import "./styles/task";

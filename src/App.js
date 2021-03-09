@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
+import "./App.scss";
 import { useState } from "react";
 
 function App() {
