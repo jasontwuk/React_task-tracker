@@ -19,6 +19,7 @@ body {
   min-height: 300px;
   padding: 30px;
   border-radius: $radius;
+  position: relative;
 
   span {
     color: royalblue;
@@ -28,3 +29,4 @@ body {
 @import "./styles/header";
 @import "./styles/btn";
 @import "./styles/task";
+@import "./styles/addTaskForm";

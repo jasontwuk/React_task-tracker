@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import "./App.scss";
 import { useState } from "react";
+import AddTaskForm from "./components/AddTaskForm";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -30,6 +31,7 @@ function App() {
   return (
     <div className="container">
       <Header />
+      <AddTaskForm />
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} deleteTask={deleteTask} />
       ) : (
