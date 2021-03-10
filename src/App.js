@@ -33,7 +33,7 @@ function App() {
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} deleteTask={deleteTask} />
       ) : (
-        <span>No Tasks To Show</span>
+        <span>Well done, there are no more tasks to be completed.</span>
       )}
     </div>
   );

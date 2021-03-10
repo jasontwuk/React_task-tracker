@@ -19,6 +19,10 @@ body {
   min-height: 300px;
   padding: 30px;
   border-radius: $radius;
+
+  span {
+    color: royalblue;
+  }
 }
 
 @import "./styles/header";
