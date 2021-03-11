@@ -23,15 +23,20 @@ function App() {
     },
   ]);
 
-  // delete task
+  // !!! delete task
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
+  // !!! show add task form
+  const [showAddTaskForm, setShowAddTaskForm] = useState(false);
+
   return (
     <div className="container">
-      <Header />
-      <AddTaskForm />
+      <Header onAdd={() => setShowAddTaskForm(!showAddTaskForm)} />
+      {showAddTaskForm && (
+        <AddTaskForm onAdd={() => setShowAddTaskForm(!showAddTaskForm)} />
+      )}
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} deleteTask={deleteTask} />
       ) : (
