@@ -7,10 +7,10 @@ const AddTaskForm = ({ onAdd }) => {
   const [color, setColor] = useState("Blue");
 
   useEffect(() => {
-    // !!!!!!!! SELECT ITEMS !!!!!!!!
-    const addTask = document.getElementById("addTask");
+    // !!! focus on #input-task when component loaded
+    const inputTask = document.getElementById("input-task");
 
-    addTask.focus();
+    inputTask.focus();
   }, []);
 
   return (
@@ -24,7 +24,7 @@ const AddTaskForm = ({ onAdd }) => {
             placeholder="Add Task"
             value={task}
             onChange={(e) => setTask(e.target.value)}
-            id="addTask"
+            id="input-task"
           />
         </div>
         <div className="form-input">
