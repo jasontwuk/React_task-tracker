@@ -44,7 +44,7 @@ const AddTaskForm = ({ onAdd }) => {
               value="Blue"
               name="colour"
               checked={color === "Blue"}
-              onClick={() => setColor("Blue")}
+              onChange={() => setColor("Blue")}
             />
             <span className="radio-blue">Blue</span>
             <input
@@ -52,7 +52,7 @@ const AddTaskForm = ({ onAdd }) => {
               value="Pink"
               name="colour"
               checked={color === "Pink"}
-              onClick={() => setColor("Pink")}
+              onChange={() => setColor("Pink")}
             />
             <span className="radio-pink">Pink</span>
             <input
@@ -60,7 +60,7 @@ const AddTaskForm = ({ onAdd }) => {
               value="Yellow"
               name="colour"
               checked={color === "Yellow"}
-              onClick={() => setColor("Yellow")}
+              onChange={() => setColor("Yellow")}
             />
             <span className="radio-yellow">Yellow</span>
             <input
@@ -68,7 +68,7 @@ const AddTaskForm = ({ onAdd }) => {
               value="Green"
               name="colour"
               checked={color === "Green"}
-              onClick={() => setColor("Green")}
+              onChange={() => setColor("Green")}
             />
             <span className="radio-green">Green</span>
             <input
@@ -76,7 +76,7 @@ const AddTaskForm = ({ onAdd }) => {
               value="Purple"
               name="colour"
               checked={color === "Purple"}
-              onClick={() => setColor("Purple")}
+              onChange={() => setColor("Purple")}
             />
             <span className="radio-purple">Purple</span>
           </div>
