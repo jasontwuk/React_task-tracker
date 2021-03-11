@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 
-const AddTaskForm = ({ onAdd }) => {
+const AddTaskForm = ({ onAdd, saveTask }) => {
   const [task, setTask] = useState("");
   const [time, setTime] = useState("");
   const [color, setColor] = useState("Blue");
+  const [successMsg, setSuccessMsg] = useState(false);
 
   useEffect(() => {
     // !!! focus on #input-task when component loaded
@@ -13,10 +14,31 @@ const AddTaskForm = ({ onAdd }) => {
     inputTask.focus();
   }, []);
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    // *** check if the task is empty
+    if (!task) {
+      alert("Please add a task.");
+      return;
+    }
+
+    saveTask({ task, time, color });
+
+    // *** clear the form
+    setTask("");
+    setTime("");
+    setColor("Blue");
+
+    // *** show success message
+    setSuccessMsg(true);
+  };
+
   return (
     <div className="form-container">
       <FaTimes onClick={onAdd} />
-      <form>
+
+      <form onSubmit={onSubmit}>
         <div className="form-input">
           <label>Task</label>
           <input
@@ -27,6 +49,7 @@ const AddTaskForm = ({ onAdd }) => {
             id="input-task"
           />
         </div>
+
         <div className="form-input">
           <label>Time</label>
           <input
@@ -36,6 +59,7 @@ const AddTaskForm = ({ onAdd }) => {
             onChange={(e) => setTime(e.target.value)}
           />
         </div>
+
         <div className="form-input">
           <label>Colour</label>
           <div className="radio-container">
@@ -81,7 +105,17 @@ const AddTaskForm = ({ onAdd }) => {
             <span className="radio-purple">Purple</span>
           </div>
         </div>
+
         <input type="submit" value="Save Task" />
+
+        {successMsg && (
+          <p>
+            <em>Task added.</em>
+            <br />
+            Please add another one or close this window to go back to your task
+            list.
+          </p>
+        )}
       </form>
     </div>
   );

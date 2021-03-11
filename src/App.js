@@ -23,6 +23,14 @@ function App() {
     },
   ]);
 
+  // !!! save task
+  const saveTask = (task) => {
+    console.log(task);
+
+    // *** close the form
+    // setShowAddTaskForm(!showAddTaskForm);
+  };
+
   // !!! delete task
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
@@ -35,7 +43,10 @@ function App() {
     <div className="container">
       <Header onAdd={() => setShowAddTaskForm(!showAddTaskForm)} />
       {showAddTaskForm && (
-        <AddTaskForm onAdd={() => setShowAddTaskForm(!showAddTaskForm)} />
+        <AddTaskForm
+          onAdd={() => setShowAddTaskForm(!showAddTaskForm)}
+          saveTask={saveTask}
+        />
       )}
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} deleteTask={deleteTask} />
