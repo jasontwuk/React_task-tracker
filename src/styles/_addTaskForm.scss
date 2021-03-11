@@ -8,7 +8,6 @@
   height: 100%;
   padding: 20px;
   background: rgba($color: #000000, $alpha: 0.8);
-  @extend %flex;
 
   svg {
     position: absolute;
@@ -74,6 +73,10 @@
       }
     }
 
+    .form-input:first-child {
+      margin-top: 20px;
+    }
+
     input[type="submit"] {
       background: #d2d2d2;
       color: #555;
@@ -88,6 +91,21 @@
     input[type="submit"]:hover {
       background: $main-color;
       color: #fff;
+    }
+
+    p {
+      color: #fff;
+      font-size: 0.8rem;
+      text-align: center;
+      width: 60%;
+      margin: 10px auto 0;
+
+      em {
+        font-size: 1.2rem;
+        font-style: normal;
+        font-weight: bold;
+        color: salmon;
+      }
     }
   }
 }
