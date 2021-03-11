@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { FaTimes } from "react-icons/fa";
 
 const AddTaskForm = () => {
   useEffect(() => {
@@ -10,6 +11,7 @@ const AddTaskForm = () => {
 
   return (
     <div className="form-container">
+      <FaTimes />
       <form>
         <div className="form-input">
           <label>Task</label>
