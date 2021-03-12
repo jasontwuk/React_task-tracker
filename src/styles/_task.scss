@@ -2,7 +2,6 @@
 
 .task {
   padding: 10px;
-  background: lightblue;
   margin-bottom: 10px;
   border-radius: $radius;
 
@@ -22,7 +21,24 @@
       background: red;
     }
   }
+
   p {
     color: #666;
   }
+}
+
+.task.blue {
+  background: $bg-blue;
+}
+.task.pink {
+  background: $bg-pink;
+}
+.task.yellow {
+  background: $bg-yellow;
+}
+.task.green {
+  background: $bg-green;
+}
+.task.purple {
+  background: $bg-purple;
 }

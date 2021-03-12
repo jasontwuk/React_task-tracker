@@ -4,7 +4,7 @@ import { FaTimes } from "react-icons/fa";
 const AddTaskForm = ({ onAdd, saveTask }) => {
   const [name, setName] = useState("");
   const [time, setTime] = useState("");
-  const [color, setColor] = useState("Blue");
+  const [color, setColor] = useState("blue");
   const [successMsg, setSuccessMsg] = useState(false);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
     // *** clear the form
     setName("");
     setTime("");
-    setColor("Blue");
+    setColor("blue");
 
     // *** show success message
     setSuccessMsg(true);
@@ -65,42 +65,42 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
           <div className="radio-container">
             <input
               type="radio"
-              value="Blue"
+              value="blue"
               name="colour"
-              checked={color === "Blue"}
-              onChange={() => setColor("Blue")}
+              checked={color === "blue"}
+              onChange={() => setColor("blue")}
             />
             <span className="radio-blue">Blue</span>
             <input
               type="radio"
-              value="Pink"
+              value="pink"
               name="colour"
-              checked={color === "Pink"}
-              onChange={() => setColor("Pink")}
+              checked={color === "pink"}
+              onChange={() => setColor("pink")}
             />
             <span className="radio-pink">Pink</span>
             <input
               type="radio"
-              value="Yellow"
+              value="yellow"
               name="colour"
-              checked={color === "Yellow"}
-              onChange={() => setColor("Yellow")}
+              checked={color === "yellow"}
+              onChange={() => setColor("yellow")}
             />
             <span className="radio-yellow">Yellow</span>
             <input
               type="radio"
-              value="Green"
+              value="green"
               name="colour"
-              checked={color === "Green"}
-              onChange={() => setColor("Green")}
+              checked={color === "green"}
+              onChange={() => setColor("green")}
             />
             <span className="radio-green">Green</span>
             <input
               type="radio"
-              value="Purple"
+              value="purple"
               name="colour"
-              checked={color === "Purple"}
-              onChange={() => setColor("Purple")}
+              checked={color === "purple"}
+              onChange={() => setColor("purple")}
             />
             <span className="radio-purple">Purple</span>
           </div>
