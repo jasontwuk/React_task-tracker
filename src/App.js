@@ -58,7 +58,11 @@ function App() {
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} deleteTask={deleteTask} />
       ) : (
-        <span>Well done, there are no more tasks to be completed.</span>
+        <p>
+          <em>Well done.</em>
+          <br />
+          There are no more tasks to be completed.
+        </p>
       )}
     </div>
   );

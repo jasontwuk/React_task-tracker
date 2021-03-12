@@ -7,7 +7,7 @@ const Task = ({ task, deleteTask }) => {
         {task.name}
         <FaTimes onClick={() => deleteTask(task.id)} />
       </h3>
-      <p>{task.time}</p>
+      <span>{task.time}</span>
     </div>
   );
 };

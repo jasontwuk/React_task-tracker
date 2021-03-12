@@ -21,8 +21,18 @@ body {
   border-radius: $radius;
   position: relative;
 
-  span {
-    color: royalblue;
+  p {
+    font-size: 0.8rem;
+    text-align: center;
+    margin: 10px auto 0;
+    color: #777;
+
+    em {
+      font-size: 1.2rem;
+      font-style: normal;
+      font-weight: bold;
+      color: royalblue;
+    }
   }
 }
 
