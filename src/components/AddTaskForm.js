@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 
 const AddTaskForm = ({ onAdd, saveTask }) => {
-  const [task, setTask] = useState("");
+  const [name, setName] = useState("");
   const [time, setTime] = useState("");
   const [color, setColor] = useState("Blue");
   const [successMsg, setSuccessMsg] = useState(false);
@@ -18,15 +18,15 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
     e.preventDefault();
 
     // *** check if the task is empty
-    if (!task) {
+    if (!name) {
       alert("Please add a task.");
       return;
     }
 
-    saveTask({ task, time, color });
+    saveTask({ name, time, color });
 
     // *** clear the form
-    setTask("");
+    setName("");
     setTime("");
     setColor("Blue");
 
@@ -44,8 +44,8 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
           <input
             type="text"
             placeholder="Add Task"
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             id="input-task"
           />
         </div>

@@ -8,18 +8,21 @@ function App() {
   const [tasks, setTasks] = useState([
     {
       id: 1,
-      text: "Food Shopping",
+      name: "Food Shopping",
       time: "02/03 at 10:30am",
+      color: "blue",
     },
     {
       id: 2,
-      text: "Wash clothes",
+      name: "Wash clothes",
       time: "08/03 at 15:30am",
+      color: "pink",
     },
     {
       id: 3,
-      text: "Exercise",
+      name: "Exercise",
       time: "21/04 at 9:00am",
+      color: "yellow",
     },
   ]);
 
