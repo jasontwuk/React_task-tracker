@@ -1,30 +1,29 @@
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
 import "./App.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AddTaskForm from "./components/AddTaskForm";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      name: "Food Shopping",
-      time: "02/03 at 10:30am",
-      color: "blue",
-    },
-    {
-      id: 2,
-      name: "Wash clothes",
-      time: "08/03 at 15:30am",
-      color: "pink",
-    },
-    {
-      id: 3,
-      name: "Exercise",
-      time: "21/04 at 9:00am",
-      color: "yellow",
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
+
+  // !!! display tasks
+  useEffect(() => {
+    const displayTasks = async () => {
+      const tasksFromServer = await fetchTasks();
+      setTasks(tasksFromServer);
+    };
+
+    displayTasks();
+  }, []);
+
+  // !!! fetch tasks from server
+  const fetchTasks = async () => {
+    const res = await fetch("http://localhost:5000/tasks");
+    const data = await res.json();
+
+    return data;
+  };
 
   // !!! save task
   const saveTask = (task) => {

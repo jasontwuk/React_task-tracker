@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Food Shopping",
+      "time": "02/03 at 10:30am",
+      "color": "blue"
+    },
+    {
+      "id": 2,
+      "name": "Wash clothes",
+      "time": "08/03 at 15:30am",
+      "color": "pink"
+    },
+    {
+      "id": 3,
+      "name": "Exercise",
+      "time": "21/04 at 9:00am",
+      "color": "yellow"
+    }
+  ]
+}
