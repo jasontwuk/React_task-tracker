@@ -71,6 +71,11 @@
           color: $bg-purple;
         }
       }
+
+      // *** for AddTaskForm.js <DatePicker> input component
+      .react-datepicker-wrapper{
+        width: 100%;
+      }
     }
 
     .form-input:first-child {
