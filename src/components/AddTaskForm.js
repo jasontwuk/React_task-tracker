@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 const AddTaskForm = ({ onAdd, saveTask }) => {
   const [name, setName] = useState("");
-  const [time, setTime] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
   const [color, setColor] = useState("blue");
+
   const [successMsg, setSuccessMsg] = useState(false);
 
   useEffect(() => {
@@ -23,11 +27,15 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
       return;
     }
 
+    // *** get #date-picker's input value, then set it to "time" property
+    const datePicker = document.getElementById("date-picker");
+    const time = datePicker.value;
+
+    // *** call saveTask
     saveTask({ name, time, color });
 
     // *** clear the form
     setName("");
-    setTime("");
     setColor("blue");
 
     // *** show success message
@@ -52,11 +60,15 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
 
         <div className="form-input">
           <label>Time</label>
-          <input
-            type="text"
-            placeholder="Add Day & Time"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            showTimeSelect
+            timeFormat="HH:mm"
+            timeIntervals={15}
+            timeCaption="time"
+            dateFormat="d MMM yyyy h:mm aa"
+            id="date-picker"
           />
         </div>
 
