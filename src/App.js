@@ -9,19 +9,19 @@ function App() {
     {
       id: 1,
       name: "Food Shopping",
-      time: "02/03 at 10:30am",
+      time: "08 Mar 2022 5:15 PM",
       color: "blue",
     },
     {
       id: 2,
       name: "Wash clothes",
-      time: "08/03 at 15:30am",
+      time: "23 Jul 2021 9:00 AM",
       color: "pink",
     },
     {
       id: 3,
       name: "Exercise",
-      time: "21/04 at 9:00am",
+      time: "26 Nov 2021 6:30 PM",
       color: "yellow",
     },
   ]);
