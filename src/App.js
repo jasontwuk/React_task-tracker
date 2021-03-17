@@ -3,28 +3,32 @@ import Tasks from "./components/Tasks";
 import "./App.scss";
 import { useState } from "react";
 import AddTaskForm from "./components/AddTaskForm";
+import useLocalStorage from "./components/useLocalStorage";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      name: "Food Shopping",
-      time: "08 Mar 2022 5:15 PM",
-      color: "blue",
-    },
-    {
-      id: 2,
-      name: "Wash clothes",
-      time: "23 Jul 2021 9:00 AM",
-      color: "pink",
-    },
-    {
-      id: 3,
-      name: "Exercise",
-      time: "26 Nov 2021 6:30 PM",
-      color: "yellow",
-    },
-  ]);
+  // [
+  //   {
+  //     id: 1,
+  //     name: "Food Shopping",
+  //     time: "08 Mar 2022 5:15 PM",
+  //     color: "blue",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Wash clothes",
+  //     time: "23 Jul 2021 9:00 AM",
+  //     color: "pink",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Exercise",
+  //     time: "26 Nov 2021 6:30 PM",
+  //     color: "yellow",
+  //   },
+  // ]
+
+  // !!! get tasks from localStorage
+  const [tasks, setTasks] = useLocalStorage("saveTasks", []);
 
   // !!! save task
   const saveTask = (task) => {
@@ -32,7 +36,9 @@ function App() {
 
     const newTask = { id, ...task };
 
-    setTasks([newTask, ...tasks]);
+    const newTasks = [newTask, ...tasks];
+
+    setTasks(newTasks);
 
     // *** close the form
     // setShowAddTaskForm(!showAddTaskForm);
@@ -40,7 +46,9 @@ function App() {
 
   // !!! delete task
   const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+    const newTasks = tasks.filter((task) => task.id !== id);
+
+    setTasks(newTasks);
   };
 
   // !!! show add task form
