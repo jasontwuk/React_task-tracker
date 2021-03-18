@@ -1,4 +1,5 @@
 import { FaTimes } from "react-icons/fa";
+import { HiPencilAlt } from "react-icons/hi";
 
 const Task = ({ task, deleteTask }) => {
   return (
@@ -7,7 +8,10 @@ const Task = ({ task, deleteTask }) => {
         {task.name}
         <FaTimes onClick={() => deleteTask(task.id)} />
       </h3>
-      <span>{task.time}</span>
+      <span>
+        {task.time}
+        <HiPencilAlt />
+      </span>
     </div>
   );
 };
