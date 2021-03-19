@@ -3,6 +3,7 @@ import Tasks from "./components/Tasks";
 import "./App.scss";
 import { useState } from "react";
 import AddTaskForm from "./components/AddTaskForm";
+import EditTaskForm from "./components/EditTaskForm";
 import useLocalStorage from "./components/useLocalStorage";
 
 function App() {
@@ -27,8 +28,17 @@ function App() {
   //   },
   // ]
 
+  // !!! show add task form
+  const [showAddTaskForm, setShowAddTaskForm] = useState(false);
+
+  // !!! show edit task form
+  const [showEditTaskForm, setShowEditTaskForm] = useState(false);
+
   // !!! get tasks from localStorage
   const [tasks, setTasks] = useLocalStorage("saveTasks", []);
+
+  // !!! set clickedTask
+  const [clickedTask, setClickedTask] = useState("");
 
   // !!! save task
   const saveTask = (task) => {
@@ -51,20 +61,56 @@ function App() {
     setTasks(newTasks);
   };
 
-  // !!! show add task form
-  const [showAddTaskForm, setShowAddTaskForm] = useState(false);
+  // !!! edit task
+  const editTask = (id) => {
+    // console.log(id);
+    const thisTask = tasks.find((task) => task.id === id);
+    // console.log(thisTask);
+    setClickedTask(thisTask);
+
+    // *** open the EditTaskForm
+    setShowEditTaskForm(!showEditTaskForm);
+  };
+
+  // !!! save edit task
+  const saveEditTask = (task) => {
+    // *** get edited task's index
+    const editTaskIndex = tasks.findIndex((t) => t.id === task.id);
+
+    // *** update edited task in the tasks array
+    tasks[editTaskIndex] = task;
+    // console.log(tasks);
+
+    // *** use spread operator to copy tasks, it produce a new tasks.
+    // *** In this way, then setTasks/useLocalStorage will save this updated tasks into localStorage. (If we didn't make a new copy, localStorage won't be updated.)
+    const newTasks = [...tasks];
+
+    setTasks(newTasks);
+
+    // *** close the EditTaskForm
+    setShowEditTaskForm(!showEditTaskForm);
+  };
 
   return (
     <div className="container">
       <Header onAdd={() => setShowAddTaskForm(!showAddTaskForm)} />
       {showAddTaskForm && (
         <AddTaskForm
+          //*** close AddTaskForm
           onAdd={() => setShowAddTaskForm(!showAddTaskForm)}
           saveTask={saveTask}
         />
       )}
+      {showEditTaskForm && (
+        <EditTaskForm
+          //*** close EditTaskForm
+          onEdit={() => setShowEditTaskForm(!showEditTaskForm)}
+          clickedTask={clickedTask}
+          saveEditTask={saveEditTask}
+        />
+      )}
       {tasks.length > 0 ? (
-        <Tasks tasks={tasks} deleteTask={deleteTask} />
+        <Tasks tasks={tasks} deleteTask={deleteTask} editTask={editTask} />
       ) : (
         <p>
           <em>Well done.</em>

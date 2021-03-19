@@ -1,7 +1,7 @@
 import { FaTimes } from "react-icons/fa";
 import { HiPencilAlt } from "react-icons/hi";
 
-const Task = ({ task, deleteTask }) => {
+const Task = ({ task, deleteTask, editTask }) => {
   return (
     <div className={`task ` + task.color}>
       <h3>
@@ -10,7 +10,7 @@ const Task = ({ task, deleteTask }) => {
       </h3>
       <span>
         {task.time}
-        <HiPencilAlt />
+        <HiPencilAlt onClick={() => editTask(task.id)} />
       </span>
     </div>
   );
