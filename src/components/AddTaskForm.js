@@ -23,7 +23,7 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
 
     // *** check if the task is empty
     if (!name) {
-      alert("Please add a task.");
+      alert("Please enter a task name.");
       return;
     }
 
@@ -52,10 +52,10 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
 
       <form onSubmit={onSubmit}>
         <div className="form-input">
-          <label>Task</label>
+          <label>Name</label>
           <input
             type="text"
-            placeholder="Add Task"
+            placeholder="Enter Task Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             id="input-task"
