@@ -20,10 +20,10 @@
     @extend %flex;
 
     svg {
-      color: red;
+      color: $btn-red;
     }
     svg:hover {
-      background: red;
+      background: $btn-red;
     }
   }
 
@@ -32,12 +32,16 @@
     color: #666;
 
     svg {
-      color: rgb(0, 102, 255);
+      color: $btn-blue;
     }
     svg:hover {
-      background: rgb(0, 102, 255);
+      background: $btn-blue;
     }
   }
+}
+
+.task:last-child {
+  margin-bottom: 0px;
 }
 
 .task.blue {
