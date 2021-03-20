@@ -36,6 +36,10 @@ const EditTaskForm = ({ onEdit, saveEditTask, clickedTask }) => {
 
   return (
     <div className="form-container">
+      <div className="title-container">
+        <h3>Edit Task</h3>
+      </div>
+
       <FaTimes onClick={onEdit} />
 
       <form onSubmit={onSubmit}>
@@ -110,7 +114,7 @@ const EditTaskForm = ({ onEdit, saveEditTask, clickedTask }) => {
           </div>
         </div>
 
-        <input type="submit" value="Save Edit Task" />
+        <input type="submit" value="Save" />
       </form>
     </div>
   );

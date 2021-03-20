@@ -44,6 +44,10 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
 
   return (
     <div className="form-container">
+      <div className="title-container">
+        <h3>Add Task</h3>
+      </div>
+
       <FaTimes onClick={onAdd} />
 
       <form onSubmit={onSubmit}>
@@ -118,7 +122,7 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
           </div>
         </div>
 
-        <input type="submit" value="Save Task" />
+        <input type="submit" value="Save" />
 
         {successMsg && (
           <p>
