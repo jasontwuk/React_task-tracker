@@ -9,8 +9,6 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [color, setColor] = useState("blue");
 
-  const [successMsg, setSuccessMsg] = useState(false);
-
   useEffect(() => {
     // !!! focus on #input-task when component loaded
     const inputTask = document.getElementById("input-task");
@@ -37,9 +35,6 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
     // *** clear the form
     setName("");
     setColor("blue");
-
-    // *** show success message
-    setSuccessMsg(true);
   };
 
   return (
@@ -123,15 +118,6 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
         </div>
 
         <input type="submit" value="Save" />
-
-        {successMsg && (
-          <p>
-            <em>Task added.</em>
-            <br />
-            Please add another one or close this window to go back to your task
-            list.
-          </p>
-        )}
       </form>
     </div>
   );

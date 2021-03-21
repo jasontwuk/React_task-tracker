@@ -51,7 +51,7 @@ function App() {
     setTasks(newTasks);
 
     // *** close the form
-    // setShowAddTaskForm(!showAddTaskForm);
+    setShowAddTaskForm(!showAddTaskForm);
   };
 
   // !!! delete task
