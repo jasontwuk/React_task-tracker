@@ -2,7 +2,6 @@
 
 .task {
   padding: 10px;
-  margin-bottom: 10px;
   border-radius: $radius;
 
   svg {
@@ -38,10 +37,6 @@
       background: $btn-blue;
     }
   }
-}
-
-.task:last-child {
-  margin-bottom: 0px;
 }
 
 .task.blue {
