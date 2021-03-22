@@ -109,8 +109,11 @@ function App() {
           saveEditTask={saveEditTask}
         />
       )}
+
+      <Tasks tasks={tasks} deleteTask={deleteTask} editTask={editTask} />
+
       {tasks.length > 0 ? (
-        <Tasks tasks={tasks} deleteTask={deleteTask} editTask={editTask} />
+        ""
       ) : (
         <p>
           <em>Well done.</em>
