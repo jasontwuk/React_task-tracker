@@ -1,33 +1,14 @@
+import { useState } from "react";
+
+import "./App.scss";
+
 import Header from "./components/Header";
 import Tasks from "./components/Tasks";
-import "./App.scss";
-import { useState } from "react";
 import AddTaskForm from "./components/AddTaskForm";
 import EditTaskForm from "./components/EditTaskForm";
 import useLocalStorage from "./components/useLocalStorage";
 
 function App() {
-  // [
-  //   {
-  //     id: 1,
-  //     name: "Food Shopping",
-  //     time: "08 Mar 2022 5:15 PM",
-  //     color: "blue",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Wash clothes",
-  //     time: "23 Jul 2021 9:00 AM",
-  //     color: "pink",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Exercise",
-  //     time: "26 Nov 2021 6:30 PM",
-  //     color: "yellow",
-  //   },
-  // ]
-
   // !!! show add task form
   const [showAddTaskForm, setShowAddTaskForm] = useState(false);
 
@@ -112,9 +93,7 @@ function App() {
 
       <Tasks tasks={tasks} deleteTask={deleteTask} editTask={editTask} />
 
-      {tasks.length > 0 ? (
-        ""
-      ) : (
+      {tasks.length <= 0 && (
         <p>
           <em>Well done.</em>
           <br />
@@ -126,3 +105,24 @@ function App() {
 }
 
 export default App;
+
+// [
+//   {
+//     id: 1,
+//     name: "Food Shopping",
+//     time: "08 Mar 2022 5:15 PM",
+//     color: "blue",
+//   },
+//   {
+//     id: 2,
+//     name: "Wash clothes",
+//     time: "23 Jul 2021 9:00 AM",
+//     color: "pink",
+//   },
+//   {
+//     id: 3,
+//     name: "Exercise",
+//     time: "26 Nov 2021 6:30 PM",
+//     color: "yellow",
+//   },
+// ]
