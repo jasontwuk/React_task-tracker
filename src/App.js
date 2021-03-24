@@ -91,7 +91,12 @@ function App() {
         />
       )}
 
-      <Tasks tasks={tasks} deleteTask={deleteTask} editTask={editTask} />
+      <Tasks
+        tasks={tasks}
+        deleteTask={deleteTask}
+        editTask={editTask}
+        setTasks={setTasks}
+      />
 
       {tasks.length <= 0 && (
         <p>

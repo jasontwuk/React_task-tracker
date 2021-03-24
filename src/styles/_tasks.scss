@@ -4,3 +4,13 @@
 .task-container:last-child {
   margin-bottom: 0;
 }
+
+.current-dragging {
+  background: $shadow;
+  border-radius: $radius;
+
+  .task {
+    // *** hide .task when the task is dragged
+    visibility: hidden;
+  }
+}
