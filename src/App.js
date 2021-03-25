@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { v4 as uuidv4 } from "uuid";
+
 import "./App.scss";
 
 import Header from "./components/Header";
@@ -23,7 +25,8 @@ function App() {
 
   // !!! save task
   const saveTask = (task) => {
-    const id = Math.floor(Math.random() * 10000) + 1;
+    // *** use uuid to create universally unique id
+    const id = uuidv4();
 
     const newTask = { id, ...task };
 
