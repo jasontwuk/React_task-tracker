@@ -17,6 +17,7 @@
     "react-scripts": "4.0.3",
     "react-spring": "^8.0.27",
     "save-dev": "0.0.1-security",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
