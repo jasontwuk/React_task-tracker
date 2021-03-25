@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FaTimes } from "react-icons/fa";
 
 import DatePicker from "react-datepicker";
@@ -9,12 +9,11 @@ const EditTaskForm = ({ onEdit, saveEditTask, clickedTask }) => {
   const [name, setName] = useState(clickedTask.name);
   const [startDate, setStartDate] = useState(new Date(clickedTask.time));
   const [color, setColor] = useState(clickedTask.color);
+  const inputRef = useRef();
 
   useEffect(() => {
-    // !!! focus on #input-task when component loaded
-    const inputTask = document.getElementById("input-task");
-
-    inputTask.focus();
+    // !!! focus on the first input box when component loaded
+    inputRef.current.focus();
   }, []);
 
   const onSubmit = (e) => {
@@ -50,7 +49,7 @@ const EditTaskForm = ({ onEdit, saveEditTask, clickedTask }) => {
             placeholder="Enter Task Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            id="input-task"
+            ref={inputRef}
           />
         </div>
 
