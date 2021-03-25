@@ -76,44 +76,59 @@ const AddTaskForm = ({ onAdd, saveTask }) => {
           <div className="radio-container">
             <input
               type="radio"
+              id="blue"
               value="blue"
               name="colour"
               checked={color === "blue"}
               onChange={() => setColor("blue")}
             />
-            <span className="radio-blue">Blue</span>
+            <label htmlFor="blue" className="radio-blue">
+              Blue
+            </label>
             <input
               type="radio"
+              id="pink"
               value="pink"
               name="colour"
               checked={color === "pink"}
               onChange={() => setColor("pink")}
             />
-            <span className="radio-pink">Pink</span>
+            <label htmlFor="pink" className="radio-pink">
+              Pink
+            </label>
             <input
               type="radio"
+              id="yellow"
               value="yellow"
               name="colour"
               checked={color === "yellow"}
               onChange={() => setColor("yellow")}
             />
-            <span className="radio-yellow">Yellow</span>
+            <label htmlFor="yellow" className="radio-yellow">
+              Yellow
+            </label>
             <input
               type="radio"
+              id="green"
               value="green"
               name="colour"
               checked={color === "green"}
               onChange={() => setColor("green")}
             />
-            <span className="radio-green">Green</span>
+            <label htmlFor="green" className="radio-green">
+              Green
+            </label>
             <input
               type="radio"
+              id="purple"
               value="purple"
               name="colour"
               checked={color === "purple"}
               onChange={() => setColor("purple")}
             />
-            <span className="radio-purple">Purple</span>
+            <label htmlFor="purple" className="radio-purple">
+              Purple
+            </label>
           </div>
         </div>
 
