@@ -4,36 +4,46 @@
   padding: 10px;
   border-radius: $radius;
 
-  svg {
-    cursor: pointer;
-    font-size: 1.2rem;
-    padding: 2px;
-    border-radius: 50%;
-    background: #fff;
-  }
-  svg:hover {
-    color: #fff;
-  }
-
-  h3 {
+  .task-name-container {
     @extend %flex;
 
+    h3 {
+      width: 90%;
+      font-weight: normal;
+    }
+
     svg {
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 2px;
+      border-radius: 50%;
+      background: #fff;
       color: $btn-red;
     }
     svg:hover {
+      color: #fff;
       background: $btn-red;
     }
   }
 
-  span {
+  .task-time-container {
     @extend %flex;
-    color: #666;
+
+    span {
+      width: 90%;
+      color: #666;
+    }
 
     svg {
+      cursor: pointer;
+      font-size: 1.2rem;
+      padding: 2px;
+      border-radius: 50%;
+      background: #fff;
       color: $btn-blue;
     }
     svg:hover {
+      color: #fff;
       background: $btn-blue;
     }
   }

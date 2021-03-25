@@ -4,14 +4,15 @@ import { HiPencilAlt } from "react-icons/hi";
 const Task = ({ task, deleteTask, editTask }) => {
   return (
     <div className={`task ` + task.color}>
-      <h3>
-        {task.name}
+      <div className="task-name-container">
+        <h3>{task.name}</h3>
         <FaTimes onClick={() => deleteTask(task.id)} />
-      </h3>
-      <span>
-        {task.time}
+      </div>
+
+      <div className="task-time-container">
+        <span>{task.time}</span>
         <HiPencilAlt onClick={() => editTask(task.id)} />
-      </span>
+      </div>
     </div>
   );
 };
