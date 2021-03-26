@@ -4,6 +4,8 @@ import { FaTimes } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+import useKeyPress from "./useKeyPress";
+
 const EditTaskForm = ({ onEdit, saveEditTask, clickedTask }) => {
   const id = clickedTask.id;
   const [name, setName] = useState(clickedTask.name);
@@ -15,6 +17,9 @@ const EditTaskForm = ({ onEdit, saveEditTask, clickedTask }) => {
     // !!! focus on the first input box when component loaded
     inputRef.current.focus();
   }, []);
+
+  // !!! close edit task form window by clicking esc key (keyCode: 27)
+  useKeyPress(27, () => onEdit());
 
   const onSubmit = (e) => {
     e.preventDefault();
