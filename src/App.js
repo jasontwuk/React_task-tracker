@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import "./App.scss";
 
 import Header from "./components/Header";
+import Sorter from "./components/Sorter";
 import Tasks from "./components/Tasks";
 import AddTaskForm from "./components/AddTaskForm";
 import EditTaskForm from "./components/EditTaskForm";
@@ -78,6 +79,7 @@ function App() {
   return (
     <div className="container">
       <Header onAdd={() => setShowAddTaskForm(!showAddTaskForm)} />
+      <Sorter />
       {showAddTaskForm && (
         <AddTaskForm
           //*** close AddTaskForm
