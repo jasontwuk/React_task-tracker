@@ -1,0 +1,58 @@
+@import "config";
+
+.sorter {
+  border-bottom: 3px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  ul {
+    @extend %flex;
+
+    li {
+      list-style: none;
+      button {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        cursor: pointer;
+      }
+      .all {
+        background: $btn-brown;
+        color: #fff;
+      }
+      .all:hover {
+        background: darken($btn-brown, 20%);
+      }
+      .blue {
+        background: $bg-blue;
+      }
+      .blue:hover {
+        background: darken($bg-blue, 20%);
+      }
+      .pink {
+        background: $bg-pink;
+      }
+      .pink:hover {
+        background: darken($bg-pink, 20%);
+      }
+      .yellow {
+        background: $bg-yellow;
+      }
+      .yellow:hover {
+        background: darken($bg-yellow, 20%);
+      }
+      .green {
+        background: $bg-green;
+      }
+      .green:hover {
+        background: darken($bg-green, 20%);
+      }
+      .purple {
+        background: $bg-purple;
+      }
+      .purple:hover {
+        background: darken($bg-purple, 15%);
+      }
+    }
+  }
+}
