@@ -85,6 +85,18 @@ function App() {
     // *** for rerender tasks
     setTasks(newTasks);
 
+    // *** for rerender colorTasks
+    if (showColorTasks) {
+      // *** use the updated tasks to filter out the selected color tasks, then update colorTasksRef.current to that array.
+      // *** (because colorTasksRef.current is an array, we can use [0] to its first item and use it to access to its color value)
+      colorTasksRef.current = tasks.filter(
+        (task) => task.color === colorTasksRef.current[0].color
+      );
+      // console.log(colorTasksRef.current);
+
+      setColorTasks(colorTasksRef.current);
+    }
+
     // *** close the EditTaskForm
     setShowEditTaskForm(!showEditTaskForm);
   };
