@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import { v4 as uuidv4 } from "uuid";
 
@@ -23,6 +23,15 @@ function App() {
 
   // !!! set clickedTask
   const [clickedTask, setClickedTask] = useState("");
+
+  // !!! set colorTasks
+  const [colorTasks, setColorTasks] = useState([]);
+
+  // !!! set colorTasksRef
+  const colorTasksRef = useRef([]);
+
+  // !!! decide to show colorTasks or tasks
+  const [showColorTasks, setShowColorTasks] = useState(false);
 
   // !!! save task
   const saveTask = (task) => {
@@ -59,8 +68,11 @@ function App() {
 
   // !!! save edit task
   const saveEditTask = (task) => {
+    // console.log(task);
+
     // *** get edited task's index
     const editTaskIndex = tasks.findIndex((t) => t.id === task.id);
+    // console.log(editTaskIndex);
 
     // *** update edited task in the tasks array
     tasks[editTaskIndex] = task;
@@ -70,16 +82,41 @@ function App() {
     // *** In this way, then setTasks/useLocalStorage will save this updated tasks into localStorage. (If we didn't make a new copy, localStorage won't be updated.)
     const newTasks = [...tasks];
 
+    // *** for rerender tasks
     setTasks(newTasks);
 
     // *** close the EditTaskForm
     setShowEditTaskForm(!showEditTaskForm);
   };
 
+  // *** get color tasks
+  const getColorTasks = (color) => {
+    // console.log(color);
+
+    // *** when the "all" button is clicked
+    if (color === "all") {
+      // *** hide colorTasks and show tasks
+      setShowColorTasks(false);
+      return;
+    }
+
+    // *** filter out the selected color tasks, then update colorTasksRef.current to that array
+    colorTasksRef.current = tasks.filter((task) => task.color === color);
+    // console.log(colorTasksRef.current);
+
+    // *** update colorTasks
+    setColorTasks(colorTasksRef.current);
+
+    // *** show colorTasks and hide tasks
+    setShowColorTasks(true);
+  };
+
   return (
     <div className="container">
       <Header onAdd={() => setShowAddTaskForm(!showAddTaskForm)} />
-      <Sorter />
+
+      <Sorter getColorTasks={getColorTasks} />
+
       {showAddTaskForm && (
         <AddTaskForm
           //*** close AddTaskForm
@@ -87,6 +124,7 @@ function App() {
           saveTask={saveTask}
         />
       )}
+
       {showEditTaskForm && (
         <EditTaskForm
           //*** close EditTaskForm
@@ -97,7 +135,9 @@ function App() {
       )}
 
       <Tasks
-        tasks={tasks}
+        tasks={showColorTasks ? colorTasks : tasks}
+        showColorTasks={showColorTasks}
+        colorTasks={colorTasks}
         deleteTask={deleteTask}
         editTask={editTask}
         setTasks={setTasks}

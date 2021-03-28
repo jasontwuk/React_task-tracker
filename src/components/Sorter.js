@@ -1,24 +1,36 @@
-const Sorter = () => {
+const Sorter = ({ getColorTasks }) => {
   return (
     <div className="sorter">
       <ul>
         <li>
-          <button className="all">all</button>
+          <button className="all" onClick={() => getColorTasks("all")}>
+            all
+          </button>
         </li>
         <li>
-          <button className="blue">&nbsp;</button>
+          <button className="blue" onClick={() => getColorTasks("blue")}>
+            &nbsp;
+          </button>
         </li>
         <li>
-          <button className="pink">&nbsp;</button>
+          <button className="pink" onClick={() => getColorTasks("pink")}>
+            &nbsp;
+          </button>
         </li>
         <li>
-          <button className="yellow">&nbsp;</button>
+          <button className="yellow" onClick={() => getColorTasks("yellow")}>
+            &nbsp;
+          </button>
         </li>
         <li>
-          <button className="green">&nbsp;</button>
+          <button className="green" onClick={() => getColorTasks("green")}>
+            &nbsp;
+          </button>
         </li>
         <li>
-          <button className="purple">&nbsp;</button>
+          <button className="purple" onClick={() => getColorTasks("purple")}>
+            &nbsp;
+          </button>
         </li>
       </ul>
     </div>

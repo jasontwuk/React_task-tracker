@@ -2,14 +2,25 @@ import Task from "./Task";
 import { useTransition, animated } from "react-spring";
 import { useState, useRef } from "react";
 
-const Tasks = ({ tasks, deleteTask, editTask, setTasks }) => {
+const Tasks = ({
+  showColorTasks,
+  tasks,
+  colorTasks,
+  deleteTask,
+  editTask,
+  setTasks,
+}) => {
   // !!! for react-spring animation
-  const transition = useTransition(tasks, (task) => task.id, {
-    from: { opacity: 0, marginLeft: -200, marginRight: 200 },
-    enter: { opacity: 1, marginLeft: 0, marginRight: 0 },
-    leave: { opacity: 0, marginLeft: 300, marginRight: -300 },
-    config: { duration: 250 },
-  });
+  const transition = useTransition(
+    showColorTasks ? colorTasks : tasks,
+    (task) => task.id,
+    {
+      from: { opacity: 0, marginLeft: -200, marginRight: 200 },
+      enter: { opacity: 1, marginLeft: 0, marginRight: 0 },
+      leave: { opacity: 0, marginLeft: 300, marginRight: -300 },
+      config: { duration: 250 },
+    }
+  );
 
   // !!! for drag and drop feature
   const [dragging, setDragging] = useState(false);
