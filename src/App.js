@@ -49,6 +49,9 @@ function App() {
 
     // *** close the form
     setShowAddTaskForm(!showAddTaskForm);
+
+    // *** hide colorTasks and show tasks
+    setShowColorTasks(false);
   };
 
   // !!! delete task
