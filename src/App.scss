@@ -31,12 +31,28 @@ body {
       font-size: 1.2rem;
       font-style: normal;
       font-weight: bold;
-      color: royalblue;
+      color: $btn-brown;
+    }
+    em.blue {
+      color: darken($bg-blue, 20%);
+    }
+    em.pink {
+      color: darken($bg-pink, 20%);
+    }
+    em.yellow {
+      color: darken($bg-yellow, 20%);
+    }
+    em.green {
+      color: darken($bg-green, 20%);
+    }
+    em.purple {
+      color: darken($bg-purple, 15%);
     }
   }
 }
 
 @import "./styles/header";
+@import "./styles/sorter";
 @import "./styles/btn";
 @import "./styles/task";
 @import "./styles/tasks";

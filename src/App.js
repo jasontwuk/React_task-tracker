@@ -30,6 +30,9 @@ function App() {
   // !!! set colorTasksRef
   const colorTasksRef = useRef([]);
 
+  // !!! set colorRef
+  const colorRef = useRef([]);
+
   // !!! decide to show colorTasks or tasks
   const [showColorTasks, setShowColorTasks] = useState(false);
 
@@ -121,6 +124,9 @@ function App() {
 
     // *** show colorTasks and hide tasks
     setShowColorTasks(true);
+
+    // *** update colorRef
+    colorRef.current = color;
   };
 
   return (
@@ -155,7 +161,15 @@ function App() {
         setTasks={setTasks}
       />
 
-      {tasks.length <= 0 && (
+      {showColorTasks && colorTasks.length <= 0 && (
+        <p>
+          <em className={colorRef.current}>No {colorRef.current} tasks.</em>
+          <br />
+          There are no {colorRef.current} tasks to be completed.
+        </p>
+      )}
+
+      {!showColorTasks && tasks.length <= 0 && (
         <p>
           <em>Well done.</em>
           <br />
