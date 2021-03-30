@@ -59,6 +59,9 @@ function App() {
     const newTasks = tasks.filter((task) => task.id !== id);
 
     setTasks(newTasks);
+
+    // *** hide colorTasks and show tasks
+    setShowColorTasks(false);
   };
 
   // !!! edit task
