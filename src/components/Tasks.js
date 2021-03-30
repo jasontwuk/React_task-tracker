@@ -31,6 +31,15 @@ const Tasks = ({
   const handleDragStart = (e, params) => {
     // console.log("drag starting..", params);
 
+    // *** change .task-container cursor style to "grabbing" in a sync way
+    setTimeout(() => {
+      const items = document.getElementsByClassName("task-container");
+
+      for (let item of items) {
+        item.style.cursor = "grabbing";
+      }
+    }, 0);
+
     // *** set values
     dragTask.current = params;
     dragNode.current = e.target;
@@ -90,6 +99,15 @@ const Tasks = ({
     // *** reset values
     dragTask.current = null;
     dragNode.current = null;
+
+    // *** change .task-container cursor style to "grab" in a sync way
+    setTimeout(() => {
+      const items = document.getElementsByClassName("task-container");
+
+      for (let item of items) {
+        item.style.cursor = "grab";
+      }
+    }, 0);
   };
 
   const getStyles = (params) => {
@@ -105,7 +123,7 @@ const Tasks = ({
   };
 
   return (
-    <>
+    <div className="tasks-container">
       {transition.map(({ item, key, props }) => (
         <animated.div
           key={key}
@@ -126,7 +144,7 @@ const Tasks = ({
           <Task task={item} deleteTask={deleteTask} editTask={editTask} />
         </animated.div>
       ))}
-    </>
+    </div>
   );
 };
 
