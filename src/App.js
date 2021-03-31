@@ -27,9 +27,6 @@ function App() {
   // !!! set colorTasks
   const [colorTasks, setColorTasks] = useState([]);
 
-  // !!! set colorTasksRef
-  const colorTasksRef = useRef([]);
-
   // !!! set colorRef
   const colorRef = useRef([]);
 
@@ -96,14 +93,10 @@ function App() {
 
     // *** for rerender colorTasks
     if (showColorTasks) {
-      // *** use the updated tasks to filter out the selected color tasks, then update colorTasksRef.current to that array.
-      // *** (because colorTasksRef.current is an array, we can use [0] to its first item and use it to access to its color value)
-      colorTasksRef.current = tasks.filter(
-        (task) => task.color === colorTasksRef.current[0].color
-      );
-      // console.log(colorTasksRef.current);
-
-      setColorTasks(colorTasksRef.current);
+      // *** use the updated tasks to filter out the selected color tasks, then update colorTasks to that array.
+      // *** (because colorTasks is an array, we can use [0] to its first item and use it to access to its color value)
+      setColorTasks(tasks.filter((task) => task.color === colorTasks[0].color));
+      // console.log(colorTasks);
     }
 
     // *** close the EditTaskForm
@@ -121,12 +114,9 @@ function App() {
       return;
     }
 
-    // *** filter out the selected color tasks, then update colorTasksRef.current to that array
-    colorTasksRef.current = tasks.filter((task) => task.color === color);
-    // console.log(colorTasksRef.current);
-
-    // *** update colorTasks
-    setColorTasks(colorTasksRef.current);
+    // *** filter out the selected color tasks, then update colorTasks to that array
+    setColorTasks(tasks.filter((task) => task.color === color));
+    // console.log(colorTasks);
 
     // *** show colorTasks and hide tasks
     setShowColorTasks(true);
