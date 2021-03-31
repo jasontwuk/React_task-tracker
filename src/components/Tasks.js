@@ -4,23 +4,20 @@ import { useState, useRef } from "react";
 
 const Tasks = ({
   showColorTasks,
+  setShowColorTasks,
   tasks,
-  colorTasks,
+  originalTasks,
   deleteTask,
   editTask,
   setTasks,
 }) => {
   // !!! for react-spring animation
-  const transition = useTransition(
-    showColorTasks ? colorTasks : tasks,
-    (task) => task.id,
-    {
-      from: { opacity: 0, marginLeft: -200, marginRight: 200 },
-      enter: { opacity: 1, marginLeft: 0, marginRight: 0 },
-      leave: { opacity: 0, marginLeft: 300, marginRight: -300 },
-      config: { duration: 250 },
-    }
-  );
+  const transition = useTransition(tasks, (task) => task.id, {
+    from: { opacity: 0, marginLeft: -200, marginRight: 200 },
+    enter: { opacity: 1, marginLeft: 0, marginRight: 0 },
+    leave: { opacity: 0, marginLeft: 300, marginRight: -300 },
+    config: { duration: 250 },
+  });
 
   // !!! for drag and drop feature
   const [dragging, setDragging] = useState(false);
@@ -68,19 +65,32 @@ const Tasks = ({
 
       // *** get the hovered task's index
       let hoverTaskIndex = newTasks.findIndex((task) => task.id === params.id);
-      // console.log(hoverIndex);
+      // console.log(hoverTaskIndex);
 
       // *** get the dragged task's index
       let dragTaskIndex = newTasks.findIndex(
         (task) => task.id === dragTask.current.id
       );
-      // console.log(currentTaskIndex);
+      // console.log(dragTaskIndex);
 
       // *** innner splice(): get the dragged task and delete it from the newTasks
       // *** [Note: It returns an array, so use "[0]" to access the only item in this array]
       // *** outter splice(): insert the dragged task into the hovered task's position
       newTasks.splice(hoverTaskIndex, 0, newTasks.splice(dragTaskIndex, 1)[0]);
-      // console.log(newTasks);
+
+      // *** when showColorTasks is true (when a specific color tasks is chose)
+      if (showColorTasks) {
+        // *** get rest of the color tasks (except the chosen one)
+        // *** [Note: newTasks is an array, use "[0]" to access the first item to represent the rest items (their color value are all the same)]
+        const originalRestTasks = originalTasks.filter(
+          (task) => task.color !== newTasks[0].color
+        );
+        // console.log(originalRestTasks);
+
+        // *** update newTasks (newTasks + originalRestTasks)
+        newTasks = [...newTasks, ...originalRestTasks];
+        // console.log(newTasks);
+      }
 
       // *** call setTasks() to update tasks in App.js
       setTasks(newTasks);
@@ -108,6 +118,9 @@ const Tasks = ({
         item.style.cursor = "grab";
       }
     }, 0);
+
+    // *** hide colorTasks and show tasks
+    setShowColorTasks(false);
   };
 
   const getStyles = (params) => {

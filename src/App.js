@@ -160,8 +160,9 @@ function App() {
 
       <Tasks
         tasks={showColorTasks ? colorTasks : tasks}
+        originalTasks={tasks}
         showColorTasks={showColorTasks}
-        colorTasks={colorTasks}
+        setShowColorTasks={setShowColorTasks}
         deleteTask={deleteTask}
         editTask={editTask}
         setTasks={setTasks}
