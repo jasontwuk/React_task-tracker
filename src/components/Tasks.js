@@ -55,13 +55,13 @@ const Tasks = ({
     // console.log(e.target);
     // console.log(dragNode.current);
 
+    // *** make a deep copy of tasks
+    let newTasks = JSON.parse(JSON.stringify(tasks));
+
     // *** when entered task (e.target) and dragged task (dragNode.current) are different...
     // *** [Note: it means the dragged task is hover other tasks]
     if (e.target !== dragNode.current) {
       // console.log("target is not the same");
-
-      // *** make a deep copy of tasks
-      let newTasks = JSON.parse(JSON.stringify(tasks));
 
       // *** get the hovered task's index
       let hoverTaskIndex = newTasks.findIndex((task) => task.id === params.id);
@@ -77,24 +77,24 @@ const Tasks = ({
       // *** [Note: It returns an array, so use "[0]" to access the only item in this array]
       // *** outter splice(): insert the dragged task into the hovered task's position
       newTasks.splice(hoverTaskIndex, 0, newTasks.splice(dragTaskIndex, 1)[0]);
-
-      // *** when showColorTasks is true (when a specific color tasks is chose)
-      if (showColorTasks) {
-        // *** get rest of the color tasks (except the chosen one)
-        // *** [Note: newTasks is an array, use "[0]" to access the first item to represent the rest items (their color value are all the same)]
-        const originalRestTasks = originalTasks.filter(
-          (task) => task.color !== newTasks[0].color
-        );
-        // console.log(originalRestTasks);
-
-        // *** update newTasks (newTasks + originalRestTasks)
-        newTasks = [...newTasks, ...originalRestTasks];
-        // console.log(newTasks);
-      }
-
-      // *** call setTasks() to update tasks in App.js
-      setTasks(newTasks);
     }
+
+    // *** when showColorTasks is true (when a specific color tasks is chose)
+    if (showColorTasks) {
+      // *** get rest of the color tasks (except the chosen one)
+      // *** [Note: newTasks is an array, use "[0]" to access the first item to represent the rest items (their color value are all the same)]
+      const originalRestTasks = originalTasks.filter(
+        (task) => task.color !== newTasks[0].color
+      );
+      // console.log(originalRestTasks);
+
+      // *** update newTasks (newTasks + originalRestTasks)
+      newTasks = [...newTasks, ...originalRestTasks];
+      // console.log(newTasks);
+    }
+
+    // *** call setTasks() to update tasks in App.js
+    setTasks(newTasks);
   };
 
   const handleDragEnd = () => {
