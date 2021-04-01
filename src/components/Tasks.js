@@ -7,6 +7,7 @@ const Tasks = ({
   setShowColorTasks,
   tasks,
   originalTasks,
+  setColorTasks,
   deleteTask,
   editTask,
   setTasks,
@@ -78,6 +79,10 @@ const Tasks = ({
       // *** outter splice(): insert the dragged task into the hovered task's position
       newTasks.splice(hoverTaskIndex, 0, newTasks.splice(dragTaskIndex, 1)[0]);
     }
+
+    // *** call setColorTasks() to update colorTasks in App.js
+    // *** [Note: this code can alter colorTasks, without it its swap effect won't show]
+    setColorTasks(newTasks);
 
     // *** when showColorTasks is true (when a specific color tasks is chose)
     if (showColorTasks) {
