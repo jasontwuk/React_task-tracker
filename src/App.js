@@ -57,8 +57,10 @@ function App() {
 
     setTasks(newTasks);
 
-    // *** hide colorTasks and show tasks
-    setShowColorTasks(false);
+    // *** if showColorTasks is true, show the updated colorTasks
+    if (showColorTasks) {
+      setColorTasks(newTasks.filter((task) => task.color === colorRef.current));
+    }
   };
 
   // !!! edit task
