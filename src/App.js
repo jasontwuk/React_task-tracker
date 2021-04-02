@@ -153,7 +153,6 @@ function App() {
         originalTasks={tasks}
         setColorTasks={setColorTasks}
         showColorTasks={showColorTasks}
-        setShowColorTasks={setShowColorTasks}
         deleteTask={deleteTask}
         editTask={editTask}
         setTasks={setTasks}

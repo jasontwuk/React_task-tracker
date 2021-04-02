@@ -4,7 +4,6 @@ import { useState, useRef } from "react";
 
 const Tasks = ({
   showColorTasks,
-  setShowColorTasks,
   tasks,
   originalTasks,
   setColorTasks,
@@ -123,9 +122,6 @@ const Tasks = ({
         item.style.cursor = "grab";
       }
     }, 0);
-
-    // *** hide colorTasks and show tasks
-    setShowColorTasks(false);
   };
 
   const getStyles = (params) => {
