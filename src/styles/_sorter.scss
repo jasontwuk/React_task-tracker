@@ -9,13 +9,25 @@
 
     li {
       list-style: none;
+      line-height: 15px;
+
+      svg {
+        font-size: 1.2rem;
+        color: darken($bg-grey, 20%);
+      }
+
       button {
         width: 25px;
         height: 25px;
         border-radius: 50%;
         border: 2px solid #fff;
         cursor: pointer;
+
+        svg {
+          color: #fff;
+        }
       }
+
       .all {
         background: $btn-brown;
         color: #fff;
@@ -53,6 +65,26 @@
       .purple:hover {
         background: darken($bg-purple, 15%);
       }
+      .time-up {
+        background: $bg-grey;
+
+        &:hover {
+          background: darken($bg-grey, 20%);
+        }
+      }
+      .time-down {
+        background: $bg-grey;
+
+        &:hover {
+          background: darken($bg-grey, 20%);
+        }
+      }
+    }
+
+    .vertical-bar {
+      width: 3px;
+      height: 25px;
+      background: #fff;
     }
   }
 }
