@@ -105,7 +105,7 @@ function App() {
     setShowEditTaskForm(!showEditTaskForm);
   };
 
-  // *** get color tasks
+  // !!! get color tasks
   const getColorTasks = (color) => {
     // console.log(color);
 
@@ -127,11 +127,35 @@ function App() {
     colorRef.current = color;
   };
 
+  // !!! get time tasks
+  const getTimeTasks = (dir) => {
+    // *** make a deep copy of tasks
+    let timeTasks = JSON.parse(JSON.stringify(tasks));
+
+    // *** from the most recent (at top) to the distant (at bottom)
+    if (dir === "time-up") {
+      timeTasks = timeTasks.sort(
+        (a, b) => Date.parse(a.time) - Date.parse(b.time)
+      );
+      // *** from the most distant (at top) to the recent (at bottom)
+    } else {
+      timeTasks = timeTasks.sort(
+        (a, b) => Date.parse(b.time) - Date.parse(a.time)
+      );
+    }
+    // console.log(timeTasks);
+
+    setTasks(timeTasks);
+
+    // *** hide colorTasks and show tasks
+    setShowColorTasks(false);
+  };
+
   return (
     <div className="container">
       <Header onAdd={() => setShowAddTaskForm(!showAddTaskForm)} />
 
-      <Sorter getColorTasks={getColorTasks} />
+      <Sorter getColorTasks={getColorTasks} getTimeTasks={getTimeTasks} />
 
       {showAddTaskForm && (
         <AddTaskForm
