@@ -1,10 +1,14 @@
-const Sorter = ({ getColorTasks }) => {
+import { FaCalendarAlt } from "react-icons/fa";
+import { FaAngleUp } from "react-icons/fa";
+import { FaAngleDown } from "react-icons/fa";
+
+const Sorter = ({ getColorTasks, getTimeTasks }) => {
   return (
     <div className="sorter">
       <ul>
         <li>
           <button className="all" onClick={() => getColorTasks("all")}>
-            all
+            <span>all</span>
           </button>
         </li>
         <li>
@@ -30,6 +34,23 @@ const Sorter = ({ getColorTasks }) => {
         <li>
           <button className="purple" onClick={() => getColorTasks("purple")}>
             &nbsp;
+          </button>
+        </li>
+        <li className="vertical-bar">&nbsp;</li>
+        <li>
+          <FaCalendarAlt />
+        </li>
+        <li>
+          <button className="time-up" onClick={() => getTimeTasks("time-up")}>
+            <FaAngleUp />
+          </button>
+        </li>
+        <li>
+          <button
+            className="time-down"
+            onClick={() => getTimeTasks("time-down")}
+          >
+            <FaAngleDown />
           </button>
         </li>
       </ul>

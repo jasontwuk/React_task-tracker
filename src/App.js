@@ -105,9 +105,27 @@ function App() {
     setShowEditTaskForm(!showEditTaskForm);
   };
 
-  // *** get color tasks
+  // !!! get color tasks
   const getColorTasks = (color) => {
     // console.log(color);
+
+    // *** get all sorter buttons
+    // *** [note: getElementsByClassName return a collection of nodes, we use [0] to access the first and only node.]
+    const sorter = document.getElementsByClassName("sorter")[0];
+    const sorterBtns = sorter.getElementsByTagName("button");
+    // console.log(sorterBtns);
+
+    // *** remove current .active
+    Object.entries(sorterBtns).forEach((btn) => {
+      // console.log(btn[1]);
+      btn[1].classList.remove("active");
+    });
+
+    // *** add .active to the clicked button
+    // *** [note: getElementsByClassName return a collection of nodes, we use [0] to access the first and only node.]
+    const clickedBtn = document.getElementsByClassName(color)[0];
+    // console.log(clickedBtn);
+    clickedBtn.classList.add("active");
 
     // *** when the "all" button is clicked
     if (color === "all") {
@@ -127,11 +145,53 @@ function App() {
     colorRef.current = color;
   };
 
+  // !!! get time tasks
+  const getTimeTasks = (dir) => {
+    // *** get all sorter buttons
+    // *** [note: getElementsByClassName return a collection of nodes, we use [0] to access the first and only node.]
+    const sorter = document.getElementsByClassName("sorter")[0];
+    const sorterBtns = sorter.getElementsByTagName("button");
+    // console.log(sorterBtns);
+
+    // *** remove current .active
+    Object.entries(sorterBtns).map((btn) => {
+      // console.log(btn[1]);
+      btn[1].classList.remove("active");
+    });
+
+    // *** add .active to the clicked button
+    // *** [note: getElementsByClassName return a collection of nodes, we use [0] to access the first and only node.]
+    const clickedBtn = document.getElementsByClassName(dir)[0];
+    // console.log(clickedBtn);
+    clickedBtn.classList.add("active");
+
+    // *** make a deep copy of tasks
+    let timeTasks = JSON.parse(JSON.stringify(tasks));
+
+    // *** from the most recent (at top) to the distant (at bottom)
+    if (dir === "time-up") {
+      timeTasks = timeTasks.sort(
+        (a, b) => Date.parse(a.time) - Date.parse(b.time)
+      );
+      // *** from the most distant (at top) to the recent (at bottom)
+    } else {
+      timeTasks = timeTasks.sort(
+        (a, b) => Date.parse(b.time) - Date.parse(a.time)
+      );
+    }
+    // console.log(timeTasks);
+
+    setTasks(timeTasks);
+
+    // *** hide colorTasks and show tasks
+    setShowColorTasks(false);
+  };
+
   return (
     <div className="container">
       <Header onAdd={() => setShowAddTaskForm(!showAddTaskForm)} />
 
-      <Sorter getColorTasks={getColorTasks} />
+      <Sorter getColorTasks={getColorTasks} getTimeTasks={getTimeTasks} />
 
       {showAddTaskForm && (
         <AddTaskForm
