@@ -8,7 +8,7 @@ const Sorter = ({ getColorTasks, getTimeTasks }) => {
       <ul>
         <li>
           <button className="all" onClick={() => getColorTasks("all")}>
-            all
+            <span>all</span>
           </button>
         </li>
         <li>
