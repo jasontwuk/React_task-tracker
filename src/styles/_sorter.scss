@@ -30,53 +30,129 @@
 
       .all {
         background: $btn-brown;
-        color: #fff;
+        position: relative;
+        isolation: isolate;
+
+        &.active::after {
+          @extend %activeBtn;
+          background: darken($btn-brown, 20%);
+        }
+
+        &:hover {
+          background: darken($btn-brown, 20%);
+        }
+
+        span {
+          position: absolute;
+          top: 3px;
+          left: 4px;
+          z-index: 2;
+          color: #fff;
+          font-size: 0.8rem;
+        }
       }
-      .all:hover {
-        background: darken($btn-brown, 20%);
-      }
+
       .blue {
         background: $bg-blue;
+        position: relative;
+        isolation: isolate;
+
+        &.active::after {
+          @extend %activeBtn;
+          background: darken($bg-blue, 20%);
+        }
+
+        &:hover {
+          background: darken($bg-blue, 20%);
+        }
       }
-      .blue:hover {
-        background: darken($bg-blue, 20%);
-      }
+
       .pink {
         background: $bg-pink;
+        position: relative;
+        isolation: isolate;
+
+        &.active::after {
+          @extend %activeBtn;
+          background: darken($bg-pink, 20%);
+        }
+
+        &:hover {
+          background: darken($bg-pink, 20%);
+        }
       }
-      .pink:hover {
-        background: darken($bg-pink, 20%);
-      }
+
       .yellow {
         background: $bg-yellow;
+        position: relative;
+        isolation: isolate;
+
+        &.active::after {
+          @extend %activeBtn;
+          background: darken($bg-yellow, 20%);
+        }
+
+        &:hover {
+          background: darken($bg-yellow, 20%);
+        }
       }
-      .yellow:hover {
-        background: darken($bg-yellow, 20%);
-      }
+
       .green {
         background: $bg-green;
+        position: relative;
+        isolation: isolate;
+
+        &.active::after {
+          @extend %activeBtn;
+          background: darken($bg-green, 20%);
+        }
+
+        &:hover {
+          background: darken($bg-green, 20%);
+        }
       }
-      .green:hover {
-        background: darken($bg-green, 20%);
-      }
+
       .purple {
         background: $bg-purple;
+        position: relative;
+        isolation: isolate;
+
+        &.active::after {
+          @extend %activeBtn;
+          background: darken($bg-purple, 15%);
+        }
+
+        &:hover {
+          background: darken($bg-purple, 15%);
+        }
       }
-      .purple:hover {
-        background: darken($bg-purple, 15%);
-      }
-      .time-up {
+
+      .time-up,
+      .time-down {
         background: $bg-grey;
+        position: relative;
+        isolation: isolate;
+
+        &.active::after {
+          @extend %activeBtn;
+          background: darken($bg-grey, 20%);
+        }
 
         &:hover {
           background: darken($bg-grey, 20%);
         }
+
+        svg {
+          position: absolute;
+          top: 0px;
+          left: 1px;
+          z-index: 2;
+        }
       }
       .time-down {
-        background: $bg-grey;
-
-        &:hover {
-          background: darken($bg-grey, 20%);
+        svg {
+          top: 1.5px;
+          left: 0.5px;
         }
       }
     }

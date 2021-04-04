@@ -9,6 +9,19 @@ $btn-radius: 15px;
   justify-content: space-between;
 }
 
+// *** active btn (Placeholder Selectors)
+%activeBtn {
+  content: "\00a0";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: 3px;
+  left: 3px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
 // *** colors
 $main-color: #1c75bc;
 
