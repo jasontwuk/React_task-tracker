@@ -7,7 +7,7 @@ const Sorter = ({ getColorTasks, getTimeTasks }) => {
     <div className="sorter">
       <ul>
         <li>
-          <button className="all" onClick={() => getColorTasks("all")}>
+          <button className="all active" onClick={() => getColorTasks("all")}>
             <span>all</span>
           </button>
         </li>
