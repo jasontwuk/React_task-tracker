@@ -19,10 +19,11 @@
       border-radius: 50%;
       background: #fff;
       color: $btn-red;
-    }
-    svg:hover {
-      color: #fff;
-      background: $btn-red;
+
+      &:hover {
+        color: #fff;
+        background: $btn-red;
+      }
     }
   }
 
@@ -41,26 +42,27 @@
       border-radius: 50%;
       background: #fff;
       color: $btn-blue;
-    }
-    svg:hover {
-      color: #fff;
-      background: $btn-blue;
+
+      &:hover {
+        color: #fff;
+        background: $btn-blue;
+      }
     }
   }
-}
 
-.task.blue {
-  background: $bg-blue;
-}
-.task.pink {
-  background: $bg-pink;
-}
-.task.yellow {
-  background: $bg-yellow;
-}
-.task.green {
-  background: $bg-green;
-}
-.task.purple {
-  background: $bg-purple;
+  &.blue {
+    background: $bg-blue;
+  }
+  &.pink {
+    background: $bg-pink;
+  }
+  &.yellow {
+    background: $bg-yellow;
+  }
+  &.green {
+    background: $bg-green;
+  }
+  &.purple {
+    background: $bg-purple;
+  }
 }

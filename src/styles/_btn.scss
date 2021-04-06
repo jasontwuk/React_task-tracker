@@ -8,8 +8,9 @@
   border: none;
   padding: 5px 20px;
   text-decoration: none;
-}
-.btn:hover {
-  background: $btn-gold;
-  color: #fff;
+
+  &:hover {
+    background: $btn-gold;
+    color: #fff;
+  }
 }

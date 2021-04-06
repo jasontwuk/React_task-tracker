@@ -32,21 +32,22 @@ body {
       font-style: normal;
       font-weight: bold;
       color: $btn-brown;
-    }
-    em.blue {
-      color: darken($bg-blue, 20%);
-    }
-    em.pink {
-      color: darken($bg-pink, 20%);
-    }
-    em.yellow {
-      color: darken($bg-yellow, 20%);
-    }
-    em.green {
-      color: darken($bg-green, 20%);
-    }
-    em.purple {
-      color: darken($bg-purple, 15%);
+
+      &.blue {
+        color: darken($bg-blue, 20%);
+      }
+      &.pink {
+        color: darken($bg-pink, 20%);
+      }
+      &.yellow {
+        color: darken($bg-yellow, 20%);
+      }
+      &.green {
+        color: darken($bg-green, 20%);
+      }
+      &.purple {
+        color: darken($bg-purple, 15%);
+      }
     }
   }
 }

@@ -1,9 +1,10 @@
 .task-container {
   margin-bottom: 10px;
   cursor: grab;
-}
-.task-container:last-child {
-  margin-bottom: 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .current-dragging {
