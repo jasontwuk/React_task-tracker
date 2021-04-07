@@ -8,6 +8,7 @@
   border: none;
   padding: 5px 20px;
   text-decoration: none;
+  transition: color 0.35s ease-in-out, background 0.35s ease-in-out;
 
   &:hover {
     background: $btn-gold;

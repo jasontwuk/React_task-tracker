@@ -34,6 +34,7 @@
     padding: 3px;
     border-radius: 50%;
     background: #fff;
+    transition: color 0.35s ease-in-out, background 0.35s ease-in-out;
 
     &:hover {
       color: #fff;
@@ -111,6 +112,7 @@
       width: 100%;
       margin-top: 15px;
       border: none;
+      transition: color 0.35s ease-in-out, background 0.35s ease-in-out;
 
       &:hover {
         background: $btn-brown;

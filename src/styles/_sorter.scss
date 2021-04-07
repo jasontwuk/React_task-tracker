@@ -22,6 +22,7 @@
         border-radius: 50%;
         border: 2px solid #fff;
         cursor: pointer;
+        transition: color 0.35s ease-in-out, background 0.35s ease-in-out;
 
         svg {
           color: #fff;

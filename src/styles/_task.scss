@@ -19,6 +19,7 @@
       border-radius: 50%;
       background: #fff;
       color: $btn-red;
+      transition: color 0.35s ease-in-out, background 0.35s ease-in-out;
 
       &:hover {
         color: #fff;
@@ -42,6 +43,7 @@
       border-radius: 50%;
       background: #fff;
       color: $btn-blue;
+      transition: color 0.35s ease-in-out, background 0.35s ease-in-out;
 
       &:hover {
         color: #fff;
