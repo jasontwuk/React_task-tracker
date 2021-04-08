@@ -35,6 +35,9 @@ function App() {
 
   // !!! save task
   const saveTask = (task) => {
+    // *** add .active to the ".all" button
+    addActiveClass("all");
+
     // *** use uuid to create universally unique id
     const id = uuidv4();
 
@@ -109,23 +112,8 @@ function App() {
   const getColorTasks = (color) => {
     // console.log(color);
 
-    // *** get all sorter buttons
-    // *** [note: getElementsByClassName return a collection of nodes, we use [0] to access the first and only node.]
-    const sorter = document.getElementsByClassName("sorter")[0];
-    const sorterBtns = sorter.getElementsByTagName("button");
-    // console.log(sorterBtns);
-
-    // *** remove current .active
-    Object.entries(sorterBtns).forEach((btn) => {
-      // console.log(btn[1]);
-      btn[1].classList.remove("active");
-    });
-
-    // *** add .active to the clicked button
-    // *** [note: getElementsByClassName return a collection of nodes, we use [0] to access the first and only node.]
-    const clickedBtn = document.getElementsByClassName(color)[0];
-    // console.log(clickedBtn);
-    clickedBtn.classList.add("active");
+    // *** dynamically add .active to colour buttons
+    addActiveClass(color);
 
     // *** when the "all" button is clicked
     if (color === "all") {
@@ -147,23 +135,8 @@ function App() {
 
   // !!! get time tasks
   const getTimeTasks = (dir) => {
-    // *** get all sorter buttons
-    // *** [note: getElementsByClassName return a collection of nodes, we use [0] to access the first and only node.]
-    const sorter = document.getElementsByClassName("sorter")[0];
-    const sorterBtns = sorter.getElementsByTagName("button");
-    // console.log(sorterBtns);
-
-    // *** remove current .active
-    Object.entries(sorterBtns).map((btn) => {
-      // console.log(btn[1]);
-      btn[1].classList.remove("active");
-    });
-
-    // *** add .active to the clicked button
-    // *** [note: getElementsByClassName return a collection of nodes, we use [0] to access the first and only node.]
-    const clickedBtn = document.getElementsByClassName(dir)[0];
-    // console.log(clickedBtn);
-    clickedBtn.classList.add("active");
+    // *** dynamically add .active to time buttons
+    addActiveClass(dir);
 
     // *** make a deep copy of tasks
     let timeTasks = JSON.parse(JSON.stringify(tasks));
@@ -185,6 +158,28 @@ function App() {
 
     // *** hide colorTasks and show tasks
     setShowColorTasks(false);
+  };
+
+  // !!! dynamically add .active to buttons
+  const addActiveClass = (para) => {
+    // *** get all sorter buttons
+    // *** [note: getElementsByClassName returns a collection of nodes, we use [0] to access the first and only node.]
+    const sorter = document.getElementsByClassName("sorter")[0];
+    const sorterBtns = sorter.getElementsByTagName("button");
+    // console.log(sorterBtns);
+
+    // *** remove current .active
+    // *** [note: sorterBtns is an object, so we use Object.entries() to turn it into an array.]
+    Object.entries(sorterBtns).map((btn) => {
+      // console.log(btn[1]);
+      btn[1].classList.remove("active");
+    });
+
+    // *** add .active to the chosen button
+    // *** [note: getElementsByClassName returns a collection of nodes, we use [0] to access the first and only node.]
+    const chosenBtn = document.getElementsByClassName(para)[0];
+    // console.log(clickedBtn);
+    chosenBtn.classList.add("active");
   };
 
   return (
