@@ -7,6 +7,7 @@ import "./App.scss";
 import Header from "./components/Header";
 import Sorter from "./components/Sorter";
 import Tasks from "./components/Tasks";
+import Footer from "./components/Footer";
 import AddTaskForm from "./components/AddTaskForm";
 import EditTaskForm from "./components/EditTaskForm";
 import useLocalStorage from "./components/useLocalStorage";
@@ -230,6 +231,8 @@ function App() {
           There are no more tasks to be completed.
         </p>
       )}
+
+      <Footer />
     </div>
   );
 }

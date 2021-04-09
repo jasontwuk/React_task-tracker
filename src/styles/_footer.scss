@@ -1,0 +1,22 @@
+@import "config";
+
+footer {
+  display: block;
+  border-top: 3px solid #fff;
+  padding-top: 10px;
+  margin-top: 20px;
+  text-align: center;
+
+  p {
+    font-size: 0.8rem;
+    color: darken($bg-grey, 20%);
+
+    a {
+      color: darken($bg-grey, 20%);
+
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+}
