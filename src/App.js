@@ -206,31 +206,35 @@ function App() {
         />
       )}
 
-      <Tasks
-        tasks={showColorTasks ? colorTasks : tasks}
-        originalTasks={tasks}
-        setColorTasks={setColorTasks}
-        showColorTasks={showColorTasks}
-        deleteTask={deleteTask}
-        editTask={editTask}
-        setTasks={setTasks}
-      />
+      <section>
+        <Tasks
+          tasks={showColorTasks ? colorTasks : tasks}
+          originalTasks={tasks}
+          setColorTasks={setColorTasks}
+          showColorTasks={showColorTasks}
+          deleteTask={deleteTask}
+          editTask={editTask}
+          setTasks={setTasks}
+        />
 
-      {showColorTasks && colorTasks.length <= 0 && (
-        <p>
-          <em className={colorRef.current}>No {colorRef.current} tasks.</em>
-          <br />
-          There are no {colorRef.current} tasks to be completed.
-        </p>
-      )}
+        <div className="msg-container">
+          {showColorTasks && colorTasks.length <= 0 && (
+            <p>
+              <em className={colorRef.current}>No {colorRef.current} tasks.</em>
+              <br />
+              There are no {colorRef.current} tasks to be completed.
+            </p>
+          )}
 
-      {!showColorTasks && tasks.length <= 0 && (
-        <p>
-          <em>Well done.</em>
-          <br />
-          There are no more tasks to be completed.
-        </p>
-      )}
+          {!showColorTasks && tasks.length <= 0 && (
+            <p>
+              <em>Well done.</em>
+              <br />
+              There are no more tasks to be completed.
+            </p>
+          )}
+        </div>
+      </section>
 
       <Footer />
     </div>

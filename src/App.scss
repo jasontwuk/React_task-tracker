@@ -16,39 +16,12 @@ body {
   max-width: 500px;
   margin: 30px auto;
   overflow: auto;
-  min-height: 495px;
   padding: 30px;
   border-radius: $radius;
   position: relative;
 
-  p {
-    font-size: 0.8rem;
-    text-align: center;
-    margin: 10px auto 0;
-    color: #777;
-
-    em {
-      font-size: 1.2rem;
-      font-style: normal;
-      font-weight: bold;
-      color: $btn-brown;
-
-      &.blue {
-        color: darken($bg-blue, 20%);
-      }
-      &.pink {
-        color: darken($bg-pink, 20%);
-      }
-      &.yellow {
-        color: darken($bg-yellow, 20%);
-      }
-      &.green {
-        color: darken($bg-green, 20%);
-      }
-      &.purple {
-        color: darken($bg-purple, 15%);
-      }
-    }
+  section {
+    min-height: 290px;
   }
 }
 
@@ -58,3 +31,5 @@ body {
 @import "./styles/task";
 @import "./styles/tasks";
 @import "./styles/addTaskForm";
+@import "./styles/msg";
+@import "./styles/footer";
