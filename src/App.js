@@ -171,7 +171,7 @@ function App() {
 
     // *** remove current .active
     // *** [note: sorterBtns is an object, so we use Object.entries() to turn it into an array.]
-    Object.entries(sorterBtns).map((btn) => {
+    Object.entries(sorterBtns).forEach((btn) => {
       // console.log(btn[1]);
       btn[1].classList.remove("active");
     });
