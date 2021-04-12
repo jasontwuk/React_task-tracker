@@ -1,7 +1,5 @@
 # Task Tracker
 
-Life is full of lots of small and big tasks for us to complete everyday. With a little bit of help from an easy-to-use task tracker, tackling these tasks will be easier. We just have to write it down and complete them one by one, then we are on the right track in life.
-
 In this web application, users have full control. They can add a task by providing its name and time / deadline, also if they like they can choose a colour from five colour groups to categorise it. They can edit and delete the existing tasks, and rearrange a task by dragging it to the desired location. By clicking a colour button, all the tasks in that specific colour category will be displayed. By clicking the time sorting buttons, the tasks will be displayed in either chronological or the reverse chronological order.
 
 Live site: https://jasontwuk.github.io/React_task-tracker/
