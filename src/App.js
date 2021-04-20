@@ -10,7 +10,7 @@ import Tasks from "./components/Tasks";
 import Footer from "./components/Footer";
 import AddTaskForm from "./components/AddTaskForm";
 import EditTaskForm from "./components/EditTaskForm";
-import useLocalStorage from "./components/useLocalStorage";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
   // !!! show add task form

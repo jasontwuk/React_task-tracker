@@ -4,7 +4,7 @@ import { FaTimes } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import useKeyPress from "./useKeyPress";
+import useKeyPress from "../hooks/useKeyPress";
 
 const AddTaskForm = ({ onAdd, saveTask }) => {
   const [name, setName] = useState("");
